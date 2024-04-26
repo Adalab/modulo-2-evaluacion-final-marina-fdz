@@ -1,0 +1,35 @@
+
+.main{
+
+    padding:20px;
+
+    &__list{
+        display: flex;
+        width: 50%;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        & .card{
+            width: 15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 3px solid black;
+            padding: 10px;
+            text-align: center;
+            gap: 10px
+        }
+        & .card-fav{
+            width: 15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 3px solid blue;
+            padding: 10px;
+            text-align: center;
+            gap: 10px
+        }
+
+    }
+}
+
