@@ -1,3 +1,5 @@
+//Añadi a favoritos
+
 const addFavorites = (event) => {
     event.preventDefault();
     const clickedLiId = event.currentTarget.id;
@@ -7,13 +9,14 @@ const addFavorites = (event) => {
     if(favLiClickedIndex === -1){
         cocktailsFav.push(clickedDrinkData);
     }else{
-        // cocktailsFav.splice(favLiClickedIndex, 1);
+        cocktailsFav.splice(favLiClickedIndex, 1);
     }
     console.log(cocktailsFav);
     renderAllCocktails(cocktailsData, allList);
     renderAllCocktails(cocktailsFav, favList);
 }
 
+// Renderizar cocteles
 
 function renderCocktail(each){
     let htmlLi = '';
@@ -41,6 +44,8 @@ function renderAllCocktails(allDrinks, parent){
 }
 
 
+//Datos del servidor
+
 function getDataCocktail(input){
     const serverUrl = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`;
 
@@ -55,28 +60,40 @@ function getDataCocktail(input){
 }
 
 
+//Cocteles favoritos guardados en local
+
 const cocktailsFavLocal = localStorage.getItem('Favorite cocktails');
 if(cocktailsFavLocal !== null){
     cocktailsFav = JSON.parse(cocktailsFavLocal);
 }
 
+
+//Renderizar los cocteles guardados en local primero
+
 const cocktailsLocal = localStorage.getItem('Cocktails');
 function searchCocktailsLocal(input){
     cocktailsData = JSON.parse(cocktailsLocal);
-    const searchedData = cocktailsData.filter((each) => each.strDrink.toLowerCase.includes(input.toLowerCase));
+    const searchedData = cocktailsData.filter((each) => each.strDrink.toLowerCase().includes(input.toLowerCase()));
     renderAllCocktails(searchedData, allList);
+    console.log(searchedData);
 }
 
+
+//Función de búsqueda
 
 const handleSearch = (event) => {
     event.preventDefault();
     const valueInputSearch = searchInput.value;
-    if(cocktailsLocal !== null){yy
-        searchCocktailsLocal(valueInputSearch);
-    }else{
-        getDataCocktail(valueInputSearch);
-    }
+    getDataCocktail(valueInputSearch);
+    // if(cocktailsLocal !== null){
+    //     searchCocktailsLocal(valueInputSearch);
+    // }else{
+    //     getDataCocktail(valueInputSearch);
+    // }
 }
+
+
+// Cuando carga la página
 
 renderAllCocktails(cocktailsFav, favList);
 searchBtn.addEventListener('click', handleSearch);
