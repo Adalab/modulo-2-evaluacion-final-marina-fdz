@@ -1,20 +1,24 @@
-//Añadi a favoritos
+//Añadir y eliminar de favoritos
 
 const addFavorites = (event) => {
     event.preventDefault();
     const clickedLiId = event.currentTarget.id;
+    const clickedElement = event.target;
+    
     const clickedDrinkData = cocktailsData.find((each)=> each.idDrink === clickedLiId);
     const favLiClickedIndex = cocktailsFav.findIndex((item) => item.idDrink === clickedLiId);
 
     if(favLiClickedIndex === -1){
         cocktailsFav.push(clickedDrinkData);
-    }else{
+    }
+    if(clickedElement.classList.contains('js_btn-remove')){
         cocktailsFav.splice(favLiClickedIndex, 1);
     }
-    console.log(cocktailsFav);
     renderAllCocktails(cocktailsData, allList);
     renderAllCocktails(cocktailsFav, favList);
 }
+
+
 
 // Renderizar cocteles
 
@@ -22,11 +26,14 @@ function renderCocktail(each){
     let htmlLi = '';
     const favIndex = cocktailsFav.findIndex((item)=> item.idDrink === each.idDrink);
     let drinkClass = favIndex === -1 ? 'card' : 'card-fav';
+    let btnClass = favIndex === -1 ? 'hidden' : 'btn';
     let imgDrink = each.strDrinkThumb === null ? imgDefault : each.strDrinkThumb;
     htmlLi = `<li class="${drinkClass} js_li-drinks" id="${each.idDrink}">
+                <div class="js_btn-remove ${btnClass}">x</div>
                 <img src="${imgDrink}" alt="${each.strDrink}">
                 <h3>"${each.strDrink}"</h3>
             </li>`; 
+    
     return htmlLi;
 }
 
@@ -83,8 +90,10 @@ function searchCocktailsLocal(input){
         getDataCocktail(input);
     }
     
-    
 }
+
+
+
 
 
 //Función de búsqueda
@@ -93,6 +102,8 @@ const handleSearch = (event) => {
     event.preventDefault();
     const valueInputSearch = searchInput.value;
     searchCocktailsLocal(valueInputSearch);
+    
+    
 }
 
 

@@ -20,6 +20,7 @@
             gap: 10px
         }
         & .card-fav{
+            position: relative;
             width: 15rem;
             display: flex;
             flex-direction: column;
@@ -28,6 +29,24 @@
             padding: 10px;
             text-align: center;
             gap: 10px
+
+        }
+
+        .btn{
+            width: 2.5rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: black;
+            font-size: 2rem;
+            color: red;
+            transform: translate(50%, -50%);
+        }
+
+        .hidden{
+            display: none;
         }
 
     }
