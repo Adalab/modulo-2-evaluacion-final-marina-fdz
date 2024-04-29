@@ -1,22 +1,73 @@
+//Reset
+
+function resetDrinks(){
+    cocktailsFav = [];
+    getDataCocktail('margarita');
+    renderAllCocktails(cocktailsFav, favList);
+}
+
+const handleReset = (event)=>{
+    resetDrinks();
+}
+
+//Botón de eliminar todos los favoritos
+
+function deleteAllBtn(){
+    let htmlDeleteBtn = '<input type="submit" value="Eliminar favoritos" class="js_btn-deleteAll">';
+    return htmlDeleteBtn;
+}
+
+//Eliminar de favoritos en lista lateral
+
+const removeFavorites = (event) =>{
+    const clickedElement = event.target;
+    const liParentId = clickedElement.parentNode.id;
+    const favLiClickedIndex = cocktailsFav.findIndex((item) => item.idDrink === liParentId);
+
+    if(favLiClickedIndex === -1){
+        cocktailsFav.splice(favLiClickedIndex, 1);
+    }
+
+    renderAllCocktails(cocktailsData, allList);
+    renderAllCocktails(cocktailsFav, favList);
+}
+
 //Añadir y eliminar de favoritos
 
 const addFavorites = (event) => {
     event.preventDefault();
     const clickedLiId = event.currentTarget.id;
-    const clickedElement = event.target;
-    
     const clickedDrinkData = cocktailsData.find((each)=> each.idDrink === clickedLiId);
     const favLiClickedIndex = cocktailsFav.findIndex((item) => item.idDrink === clickedLiId);
 
     if(favLiClickedIndex === -1){
         cocktailsFav.push(clickedDrinkData);
-    }
-    if(clickedElement.classList.contains('js_btn-remove')){
+    }else{
         cocktailsFav.splice(favLiClickedIndex, 1);
     }
     renderAllCocktails(cocktailsData, allList);
     renderAllCocktails(cocktailsFav, favList);
+    
 }
+
+//Eventos para añadir y eliminar favoritos
+
+function clickedFav(parent){
+    
+    if(parent === allList){
+        const allDrinksLi = document.querySelectorAll('.js_li-drinks');
+        for(const li of allDrinksLi){
+            li.addEventListener('click', addFavorites);
+        }
+    }else{
+        const allDrinksBtn = document.querySelectorAll('.js_btn-remove');
+        for(const btn of allDrinksBtn){
+            btn.addEventListener('click', removeFavorites);
+        }
+    }
+    
+}
+
 
 
 
@@ -28,9 +79,9 @@ function renderCocktail(each){
     let drinkClass = favIndex === -1 ? 'card' : 'card-fav';
     let btnClass = favIndex === -1 ? 'hidden' : 'btn';
     let imgDrink = each.strDrinkThumb === null ? imgDefault : each.strDrinkThumb;
-    htmlLi = `<li class="${drinkClass} js_li-drinks" id="${each.idDrink}">
-                <img class="img" src="${imgDrink}" alt="${each.strDrink}">
-                <h3>"${each.strDrink}"</h3>
+    htmlLi = `<li class="${drinkClass} js_li-drinks" id=${each.idDrink}>
+                <img class="img" src=${imgDrink} alt=${each.strDrink}>
+                <h3>${each.strDrink}</h3>
                 <div class="js_btn-remove ${btnClass}">x</div>
             </li>`; 
     
@@ -38,16 +89,17 @@ function renderCocktail(each){
 }
 
 
+
 function renderAllCocktails(allDrinks, parent){
     parent.innerHTML = '';
     for (const drink of allDrinks){
         parent.innerHTML += renderCocktail(drink);
     }
-    const allDrinksLi = document.querySelectorAll('.js_li-drinks');
-    for(const li of allDrinksLi){
-        li.addEventListener('click', addFavorites);
-    }
+    
     localStorage.setItem('Favorite cocktails', JSON.stringify(cocktailsFav));
+    clickedFav(parent);
+    
+    
 }
 
 
@@ -60,7 +112,6 @@ function getDataCocktail(input){
     .then((response) => response.json())
     .then((dataServer) => {
         cocktailsData = dataServer.drinks;
-        localStorage.setItem('Cocktails', JSON.stringify(cocktailsData));
         console.log(cocktailsData);
         renderAllCocktails(cocktailsData, allList);
     })
@@ -72,27 +123,8 @@ function getDataCocktail(input){
 const cocktailsFavLocal = localStorage.getItem('Favorite cocktails');
 if(cocktailsFavLocal !== null){
     cocktailsFav = JSON.parse(cocktailsFavLocal);
-}
-
-
-//Renderizar los cocteles guardados en local primero
-
-const cocktailsLocal = localStorage.getItem('Cocktails');
-function searchCocktailsLocal(input){
-    let searchedData = [];
-    cocktailsData = JSON.parse(cocktailsLocal);
-    searchedData = cocktailsData.filter((each) => each.strDrink.toLowerCase().includes(input.toLowerCase()));
-    if(searchedData.length !== 0){
-        renderAllCocktails(searchedData, allList);
-        console.log('holis');
-        console.log(searchedData);
-    }else{
-        getDataCocktail(input);
-    }
     
 }
-
-
 
 
 
@@ -101,7 +133,7 @@ function searchCocktailsLocal(input){
 const handleSearch = (event) => {
     event.preventDefault();
     const valueInputSearch = searchInput.value;
-    searchCocktailsLocal(valueInputSearch);
+    getDataCocktail(valueInputSearch);
     
     
 }
@@ -111,3 +143,7 @@ const handleSearch = (event) => {
 
 renderAllCocktails(cocktailsFav, favList);
 searchBtn.addEventListener('click', handleSearch);
+getDataCocktail('margarita');
+resetBtn.addEventListener('click', handleReset);
+
+
