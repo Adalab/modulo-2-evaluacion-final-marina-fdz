@@ -53,9 +53,9 @@ function getDataCocktail(input){
     .then((response) => response.json())
     .then((dataServer) => {
         cocktailsData = dataServer.drinks;
+        localStorage.setItem('Cocktails', JSON.stringify(cocktailsData));
         console.log(cocktailsData);
         renderAllCocktails(cocktailsData, allList);
-        localStorage.setItem('Cocktails', JSON.stringify(cocktailsData));
     })
 }
 
@@ -72,10 +72,18 @@ if(cocktailsFavLocal !== null){
 
 const cocktailsLocal = localStorage.getItem('Cocktails');
 function searchCocktailsLocal(input){
+    let searchedData = [];
     cocktailsData = JSON.parse(cocktailsLocal);
-    const searchedData = cocktailsData.filter((each) => each.strDrink.toLowerCase().includes(input.toLowerCase()));
-    renderAllCocktails(searchedData, allList);
-    console.log(searchedData);
+    searchedData = cocktailsData.filter((each) => each.strDrink.toLowerCase().includes(input.toLowerCase()));
+    if(searchedData.length !== 0){
+        renderAllCocktails(searchedData, allList);
+        console.log('holis');
+        console.log(searchedData);
+    }else{
+        getDataCocktail(input);
+    }
+    
+    
 }
 
 
@@ -84,12 +92,7 @@ function searchCocktailsLocal(input){
 const handleSearch = (event) => {
     event.preventDefault();
     const valueInputSearch = searchInput.value;
-    getDataCocktail(valueInputSearch);
-    // if(cocktailsLocal !== null){
-    //     searchCocktailsLocal(valueInputSearch);
-    // }else{
-    //     getDataCocktail(valueInputSearch);
-    // }
+    searchCocktailsLocal(valueInputSearch);
 }
 
 
