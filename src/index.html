@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Buscador de Cócteles</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
     <link rel="icon" href="./images/favicon.png" />
     <link rel="stylesheet" href="./scss/main.scss">
   </head>
@@ -17,11 +16,21 @@
       <h1>Buscador de Cócteles</h1>
     </header>
     <main class="main">
-      <input type="text" name="cocktail-input" id="cocktail-input" class="js_input">
-      <input type="submit" value="Buscar" class="js_btn-search">
-      <input type="reset" value="Reset" class="js_btn-reset">
-      <ul class="main__list js_list-fav"></ul>
-      <ul class="main__list js_list-all"></ul>
+      <section class="main__searcher">
+        <input type="text" name="cocktail-input" id="cocktail-input" class="main__searcher-input js_input" placeholder="Busca tu cóctel">
+        <input type="submit" value="Buscar" class="main__searcher-submit js_btn-search">
+        <input type="reset" value="Reset" class="main__searcher-reset js_btn-reset">
+      </section>
+      <section class="lists">
+        <article class="lists__fav">
+          <h2>Cócteles Favoritos</h2>
+          <ul class="lists__fav-ul js_list-fav"></ul>
+        </article>
+        <article class="lists__all">
+          <h2>Lista</h2>
+          <ul class="lists__all-ul js_list-all"></ul>
+        </article>
+      </section>
     </main>
     <footer></footer>
     <script src="./js/main.js"></script>

@@ -29,9 +29,9 @@ function renderCocktail(each){
     let btnClass = favIndex === -1 ? 'hidden' : 'btn';
     let imgDrink = each.strDrinkThumb === null ? imgDefault : each.strDrinkThumb;
     htmlLi = `<li class="${drinkClass} js_li-drinks" id="${each.idDrink}">
-                <div class="js_btn-remove ${btnClass}">x</div>
-                <img src="${imgDrink}" alt="${each.strDrink}">
+                <img class="img" src="${imgDrink}" alt="${each.strDrink}">
                 <h3>"${each.strDrink}"</h3>
+                <div class="js_btn-remove ${btnClass}">x</div>
             </li>`; 
     
     return htmlLi;

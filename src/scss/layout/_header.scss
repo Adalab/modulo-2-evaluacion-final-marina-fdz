@@ -1,7 +1,10 @@
 .header{
     display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: black;
-    color: white;
+    justify-content: flex-start;
+    color: $mainColor;
+    font-family: $secondaryFont;
+    font-size: 4rem;
+    border-bottom: 3px solid $mainColor;
+    margin: 20px;
+    
 }
