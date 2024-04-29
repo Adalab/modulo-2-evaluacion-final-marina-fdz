@@ -12,9 +12,21 @@ const handleReset = (event)=>{
 
 //Botón de eliminar todos los favoritos
 
+const handleRemoveAllFavs = (event) =>{
+    cocktailsFav = [];
+    renderAllCocktails(cocktailsFav, favList);
+}
+
 function deleteAllBtn(){
-    let htmlDeleteBtn = '<input type="submit" value="Eliminar favoritos" class="js_btn-deleteAll">';
-    return htmlDeleteBtn;
+    const removeAllElement = document.createElement('input');
+    removeAllElement.type = 'submit';
+    removeAllElement.value = 'Eliminar favoritos';
+   
+    if( cocktailsFav.length !== 0){
+        favList.appendChild(removeAllElement);
+    }
+
+    removeAllElement.addEventListener('click', handleRemoveAllFavs);
 }
 
 //Eliminar de favoritos en lista lateral
@@ -47,6 +59,7 @@ const addFavorites = (event) => {
     }
     renderAllCocktails(cocktailsData, allList);
     renderAllCocktails(cocktailsFav, favList);
+    deleteAllBtn();
     
 }
 
@@ -72,18 +85,45 @@ function clickedFav(parent){
 // Renderizar cocteles
 
 function renderCocktail(each){
-    let htmlLi = '';
+  
     const favIndex = cocktailsFav.findIndex((item)=> item.idDrink === each.idDrink);
     let drinkClass = favIndex === -1 ? 'card' : 'card-fav';
-    let btnClass = favIndex === -1 ? 'hidden' : 'btn';
     let imgDrink = each.strDrinkThumb === null ? imgDefault : each.strDrinkThumb;
-    htmlLi = `<li class="${drinkClass} js_li-drinks" id=${each.idDrink}>
-                <img class="img" src=${imgDrink} alt=${each.strDrink}>
-                <h3>${each.strDrink}</h3>
-                <div class="js_btn-remove ${btnClass}">x</div>
-            </li>`; 
+    // htmlLi = `<li class="${drinkClass} js_li-drinks" id=${each.idDrink}>
+    //             <img class="img" src=${imgDrink} alt=${each.strDrink}>
+    //             <h3>${each.strDrink}</h3>
+    //             <div class="js_btn-remove ${btnClass}">x</div>
+    //         </li>`; 
     
-    return htmlLi;
+    const liElement = document.createElement('li');
+    liElement.classList.add(drinkClass);
+    liElement.classList.add('js_li-drinks');
+    liElement.setAttribute('id', each.idDrink);
+    
+    const imgElement = document.createElement('img');
+    imgElement.src = imgDrink;
+    imgElement.classList.add('img');
+    imgElement.setAttribute('alt', each.strDrink);
+    liElement.appendChild(imgElement);
+
+    const h3Element = document.createElement('h3');
+    const h3Text = document.createTextNode(each.strDrink);
+    h3Element.appendChild(h3Text);
+    liElement.appendChild(h3Element);
+
+    if(favIndex !== -1){
+        const removeBtnElement = document.createElement('div');
+        const textBtn = document.createTextNode('x');
+        removeBtnElement.appendChild(textBtn);
+        removeBtnElement.classList.add('js_btn-remove');
+        removeBtnElement.classList.add('btn');
+        liElement.appendChild(removeBtnElement);
+    }
+
+    console.log(liElement);
+    return liElement;
+    
+
 }
 
 
@@ -91,7 +131,7 @@ function renderCocktail(each){
 function renderAllCocktails(allDrinks, parent){
     parent.innerHTML = '';
     for (const drink of allDrinks){
-        parent.innerHTML += renderCocktail(drink);
+        parent.appendChild(renderCocktail(drink));
     }
     
     localStorage.setItem('Favorite cocktails', JSON.stringify(cocktailsFav));
@@ -143,5 +183,4 @@ renderAllCocktails(cocktailsFav, favList);
 searchBtn.addEventListener('click', handleSearch);
 getDataCocktail('margarita');
 resetBtn.addEventListener('click', handleReset);
-
-
+deleteAllBtn();
