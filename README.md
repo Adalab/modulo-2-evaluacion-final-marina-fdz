@@ -1,8 +1,10 @@
 ![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
 
-# Adalab web starter kit
+# Buscador de Cócteles
 
-Ahoy! Este es nuestro Starter Kit creado en **node y vite**. ¿Y qué es un Starter kit? Pues es una **plantilla de proyecto con funcionalidades preinstaladas y preconfiguradas**.
+Este es el repositorio creado para la realización del ejercicio de evaluación del módulo 2 de Adalab.
+
+**Buscador de cócteles** es una aplicaición web interactiva que permite obtener nombres de cócteles y su correspondiente fotografía. La web dispone de un buscador 
 
 Este Kit incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más. El Kit nos ayuda a trabajar más cómodamente, nos automatiza tareas.
 

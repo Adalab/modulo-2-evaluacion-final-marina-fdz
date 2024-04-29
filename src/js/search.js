@@ -89,11 +89,6 @@ function renderCocktail(each){
     const favIndex = cocktailsFav.findIndex((item)=> item.idDrink === each.idDrink);
     let drinkClass = favIndex === -1 ? 'card' : 'card-fav';
     let imgDrink = each.strDrinkThumb === null ? imgDefault : each.strDrinkThumb;
-    // htmlLi = `<li class="${drinkClass} js_li-drinks" id=${each.idDrink}>
-    //             <img class="img" src=${imgDrink} alt=${each.strDrink}>
-    //             <h3>${each.strDrink}</h3>
-    //             <div class="js_btn-remove ${btnClass}">x</div>
-    //         </li>`; 
     
     const liElement = document.createElement('li');
     liElement.classList.add(drinkClass);
