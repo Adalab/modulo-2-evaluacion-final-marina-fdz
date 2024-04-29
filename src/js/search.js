@@ -69,8 +69,6 @@ function clickedFav(parent){
 }
 
 
-
-
 // Renderizar cocteles
 
 function renderCocktail(each){
