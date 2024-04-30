@@ -8,8 +8,7 @@ Este es el repositorio creado para la realización del ejercicio de evaluación 
 
 La web dispone de un buscador, con botón de búsqueda y de reseteo. Una sección llamada **Lista** en la que aparecen los resultados de la búsqueda; y otra sección llamada **Cócteles favoritos**, en la que se pueden ir acumulando los cócteles seleccionados por la usuaria y guardados en el local storage.
 
-
-### La aplicación funciona siguiendo estos pasos:
+La aplicación funciona siguiendo estos pasos:
 
 - Tras introducir una bebida en el buscador, al pulsar el botón de `Buscar`, los resultados de la búsqueda aparecerán en el apartado **Lista**. Cada resultado se visualizará en formato tarjeta, con el nombre de la bebida y la fotografía correspondiente.
 
@@ -34,14 +33,14 @@ La web dispone de un buscador, con botón de búsqueda y de reseteo. Una secció
 
 
 
-### API
+### API:
 
 Al hacer click en el botón de `Buscar`, la aplicación se conecta al API abierto [TheCocktailDB](https://www.thecocktaildb.com/api.php).
 
 
 
 
-### Guía para clonar este repositorio en tu dispositivo
+### Guía para clonar este repositorio en tu dispositivo:
 
 
 - Clona este repositorio en tu dispositivo local usando los siguientes comandos:
@@ -71,6 +70,6 @@ npm start
 
 
 
-### Autora
+### Autora:
 
 - [@marina-fdz](https://www.github.com/marina-fdz)
