@@ -1,10 +1,15 @@
 .header{
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     color: $mainColor;
     font-family: $secondaryFont;
-    font-size: 4rem;
-    border-bottom: 3px solid $mainColor;
-    margin: 20px;
+    font-size: 3.6rem;
+    padding: 10px 20px;
+    gap: 15px;
+    
+    .fa-martini-glass-citrus{
+        font-size: 5.2rem;
+    }
     
 }
