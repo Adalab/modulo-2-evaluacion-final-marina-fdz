@@ -19,9 +19,15 @@ const handleRemoveAllFavs = (event) =>{
 
 function deleteAllBtn(){
     const removeAllElement = document.createElement('input');
-    removeAllElement.type = 'submit';
+    removeAllElement.type = 'reset';
     removeAllElement.value = 'Eliminar favoritos';
-   
+    removeAllElement.classList.add('btn-removeAll');
+    
+    // const removeAllElement = document.createElement('div');
+    // const textRemove = document.createTextNode('Eliminar favoritos');
+    // removeAllElement.appendChild(textRemove);
+    // removeAllElement.classList.add('btn-removeAll');
+
     if( cocktailsFav.length !== 0){
         favList.appendChild(removeAllElement);
     }
@@ -107,9 +113,11 @@ function renderCocktail(each){
     liElement.appendChild(h3Element);
 
     if(favIndex !== -1){
-        const removeBtnElement = document.createElement('div');
-        const textBtn = document.createTextNode('x');
-        removeBtnElement.appendChild(textBtn);
+        const removeBtnElement = document.createElement('icon');
+        // const textBtn = document.createTextNode('x');
+        // removeBtnElement.appendChild(textBtn);
+        removeBtnElement.classList.add('fa-solid');
+        removeBtnElement.classList.add('fa-xmark');
         removeBtnElement.classList.add('js_btn-remove');
         removeBtnElement.classList.add('btn');
         liElement.appendChild(removeBtnElement);
