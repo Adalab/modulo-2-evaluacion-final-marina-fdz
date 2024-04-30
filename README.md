@@ -12,8 +12,8 @@ La web dispone de un buscador, con botón de búsqueda y de reseteo. Una secció
 
 - Permitir a la usuaria introducir una bebida en el búscador. Al pulsar el botón de `Buscar`, los resultados de la búsqueda aparecerán en el apartado **Lista**. Cada resultado se visualizará en formato tarjeta, con el nombre de la bebida y la fotografía correspondiente.
 
-- Permitir a la persona usuaria que, haciendo click en cada resultado, pueda añadirlos a la sección de **Cócteles favoritos**. Esta sección se encontrará en versión desktop y tablet a la izquierda de los resultados de búsquda y en la versión móvil, seguidamente debajo. La lista de **favoritos** puede actualizarse tanto haciendo click en las tarjetas de los resultados de la búsqueda, como en el propio listado de favoritos, haciendo click en el icono `X` de eliminar.
+- Permitir a la usuaria que, haciendo click en cada resultado, pueda añadirlos a la sección de **Cócteles favoritos**. Esta sección se encontrará en las versiones desktop y tablet, a la izquierda de los resultados de búsqueda, y en la versión móvil, seguidamente debajo. La lista de **favoritos** puede actualizarse tanto haciendo click en las tarjetas de los resultados de la búsqueda, como en el propio listado de favoritos, haciendo click en el icono `X` de eliminar.
 
 - Permitir a la usuaria eliminar todos los **Cócteles favoritos**, haciendo click en el botón `Eliminar favoritos`, que se encuentra al final del listado.
 
-- Permitir a la usuaria eliminar resetear tanto los **Cócteles favoritos** como los **resultados de la última búsqueda**, al hacer click en el botón de `Reset`.
+- Por último, se pueden resetear tanto los **Cócteles favoritos** como los **resultados de la última búsqueda**, haciendo click en el botón de `Reset`.
