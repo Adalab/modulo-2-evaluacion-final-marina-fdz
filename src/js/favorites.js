@@ -4,6 +4,7 @@ const handleRemoveAllFavs = (event) =>{
     event.preventDefault();
     cocktailsFav = [];
     renderAllCocktails(cocktailsFav, favList);
+    renderAllCocktails(cocktailsData, allList);
 }
 
 function deleteAllBtn(){
