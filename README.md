@@ -17,3 +17,52 @@ La web dispone de un buscador, con botón de búsqueda y de reseteo. Una secció
 - Es posible eliminar de una vez todos los **Cócteles favoritos**, haciendo click en el botón `Eliminar favoritos`, que se encuentra al final del listado. Esta operación los eliminará también del local storage.
 
 - Por último, se pueden resetear tanto los **Cócteles favoritos** como los **resultados de la última búsqueda**, haciendo click en el botón de `Reset`.
+
+
+## Herramientas y lenguajes de programación:
+
+- VISUAL STUDIO CODE (VSC) 
+- HTML 
+- JS 
+- GIT / GITHUB 
+- SASS / SCSS 
+- API 
+
+
+## API
+
+Al hacer click en el botón de `Buscar`, la aplicación se conecta al API abierto [TheCocktailDB](https://www.thecocktaildb.com/api.php)
+
+
+
+## Guía para clonar este repositorio en tu dispositivo
+
+
+- Clona este repositorio en tu dispositivo local usando los siguientes comandos:
+
+```
+https://github.com/Adalab/modulo-2-evaluacion-final-marina-fdz.git
+```
+
+```
+git clone
+```
+
+- Instala las dependencias del proyecto usando npm:
+
+```
+npm install
+```
+
+- Abre la aplicación web:
+
+```
+npm start
+```
+
+- La aplicación se ejecutará en su navegador establecido por defecto.
+
+
+## Authors
+
+- [@marina-fdz](https://www.github.com/marina-fdz)
