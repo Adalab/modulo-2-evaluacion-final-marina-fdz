@@ -25,13 +25,6 @@ function deleteAllBtn(){
 
 const removeFavorites = (event) =>{
     event.preventDefault();
-    const clickedElement = event.target;
-    const liParentId = clickedElement.parentNode.id;
-    const favLiClickedIndex = cocktailsFav.findIndex((item) => item.idDrink === liParentId);
-
-    if(favLiClickedIndex === -1){
-        cocktailsFav.splice(favLiClickedIndex, 1);
-    }
 
     renderAllCocktails(cocktailsData, allList);
     renderAllCocktails(cocktailsFav, favList);
