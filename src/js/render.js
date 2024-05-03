@@ -1,8 +1,9 @@
 function renderCocktail(each){
-  
+    let textAlcohol = '';
     const favIndex = cocktailsFav.findIndex((item)=> item.idDrink === each.idDrink);
     let drinkClass = favIndex === -1 ? 'card' : 'card-fav';
     let imgDrink = each.strDrinkThumb === null ? imgDefault : each.strDrinkThumb;
+    textAlcohol = each.strAlcoholic === 'Alcoholic' ? 'Tiene alcohol' : 'Sin alcohol';
     
     const liElement = document.createElement('li');
     liElement.classList.add(drinkClass);
@@ -20,6 +21,11 @@ function renderCocktail(each){
     h3Element.appendChild(h3Text);
     liElement.appendChild(h3Element);
 
+    const pAlcoholElement = document.createElement('p');
+    const pText = document.createTextNode(textAlcohol);
+    pAlcoholElement.appendChild(pText);
+    liElement.appendChild(pAlcoholElement);
+
     if(favIndex !== -1){
         const removeBtnElement = document.createElement('icon');
         removeBtnElement.classList.add('fa-solid');
@@ -29,7 +35,7 @@ function renderCocktail(each){
         liElement.appendChild(removeBtnElement);
     }
 
-    console.log(liElement);
+    
     return liElement;
     
 
@@ -39,6 +45,8 @@ function renderCocktail(each){
 
 function renderAllCocktails(allDrinks, parent){
     parent.innerHTML = '';
+    
+
     for (const drink of allDrinks){
         parent.appendChild(renderCocktail(drink));
     }

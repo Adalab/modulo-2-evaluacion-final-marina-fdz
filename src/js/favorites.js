@@ -50,6 +50,7 @@ const addFavorites = (event) => {
     }else{
         cocktailsFav.splice(favLiClickedIndex, 1);
     }
+    console.log(clickedDrinkData.strDrink);
     renderAllCocktails(cocktailsData, allList);
     renderAllCocktails(cocktailsFav, favList);
     deleteAllBtn();

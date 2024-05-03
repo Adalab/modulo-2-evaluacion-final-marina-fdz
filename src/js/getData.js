@@ -5,7 +5,6 @@ function getDataCocktail(input){
     .then((response) => response.json())
     .then((dataServer) => {
         cocktailsData = dataServer.drinks;
-        console.log(cocktailsData);
         renderAllCocktails(cocktailsData, allList);
     })
 }
