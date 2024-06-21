@@ -46,11 +46,7 @@ Al hacer click en el botón de `Buscar`, la aplicación se conecta al API abiert
 - Clona este repositorio en tu dispositivo local usando los siguientes comandos:
 
 ```
-https://github.com/marina-fdz/cocktail-search-app.git
-```
-
-```
-git clone
+git clone https://github.com/marina-fdz/cocktail-search-app.git
 ```
 
 - Instala las dependencias del proyecto usando npm:
