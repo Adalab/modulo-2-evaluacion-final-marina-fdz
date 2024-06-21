@@ -46,7 +46,7 @@ Al hacer click en el botón de `Buscar`, la aplicación se conecta al API abiert
 - Clona este repositorio en tu dispositivo local usando los siguientes comandos:
 
 ```
-https://github.com/Adalab/modulo-2-evaluacion-final-marina-fdz.git
+https://github.com/marina-fdz/cocktail-search-app.git
 ```
 
 ```
